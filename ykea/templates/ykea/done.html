@@ -1,0 +1,23 @@
+<a href="{% url 'index' %}"> YKEA</a>
+<br>
+
+{% if shoppingcart %}
+Thanks for your purchase!
+Youre recipt:
+<p>
+    {% for item in shoppingcart.items.all %}
+        <br>
+    <a href="{% url 'details' item.item_number %}">
+   {{item.name}} </a>
+        <p>
+             <br>
+             {{item.price}} € X {% for each in item.itemquantity_set.all %}
+        {{ each.quantity }}
+    {% endfor %}
+    </p>
+
+    {% endfor %}
+Total  = {{total}}
+{% else %}
+    <p>The cart is empty.</p>
+{% endif %}

@@ -1,0 +1,19 @@
+<a href="{% url 'index' %}"> YKEA</a> |
+
+{% if not request.user.is_authenticated %}
+<a href="{% url 'login'%}?next={% url 'index'%} "> Login </a> |
+<a href="{% url 'register' %}"> Sign in </a> <br>
+{% else %}
+ Hello {{request.user}} |
+<a href="{% url 'logout'%}?next={% url 'index'%} "> Logout </a>
+{% endif %}
+<br>
+<br>
+Categories:
+<br>
+<br>
+{% for category in categories %}
+<li>
+    <a href="{% url 'items' category%}"> {{category}} </a> <br>
+</li>
+{% endfor %}

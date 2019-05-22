@@ -1,0 +1,37 @@
+<a href="{% url 'index' %}"> YKEA</a>/<a href="{% url 'shoppingcart'   %}"> Shoping Cart </a> |
+
+{% if not request.user.is_authenticated %}
+<a href="{% url 'login'%}?next={% url 'shoppingcart'  category %} "> Login </a> |
+<a href="{% url 'register' %}"> Sign in </a> <br>
+{% else %}
+ Hello {{request.user}} | {{money}} €
+<a href="{% url 'logout'%}?next={% url 'index'%} "> Logout </a>
+{% endif %}
+
+<br>
+
+{% if shoppingcart %}
+    <form action="{% url 'process_shoppingcart'%}" method="post">
+        {% csrf_token %}
+    {% for item in shoppingcart.items.all %}
+
+        <br>
+    <input type= checkbox name="checkbox{{ item.item_number }}" id="checkbox{{ item.item_number }}" value="{{ item.item_number }}"/>
+    <a href="{% url 'details' item.item_number %}">
+   {{item.name}} </a>  <input type="number" min="1" size="3" name="q{{ item.item_number }}" id="q{{ item.item_number }}" value="1"/>
+        <p>
+            {{item.description}} <br>
+             {{item.price}} €
+        </p>
+
+    {% endfor %}
+        <p>
+
+            <input type="submit" name = "delete" value="Delete Selected Items" />
+            <input type="submit" name = "buy" value="Buy the Shopping cart" />
+        </p>
+   </form>
+
+{% else %}
+    <p>The cart is empty.</p>
+{% endif %}
