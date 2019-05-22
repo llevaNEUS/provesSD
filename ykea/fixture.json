@@ -1,6 +1,6 @@
 [
   {
-    "model": 'ykea.Item',
+    "model": "ykea.Item",
     "pk": 1,
     "fields": {
       "item_number": '09186777',
@@ -13,7 +13,7 @@
     }
   },
    {
-   "model": 'ykea.Item',
+   "model": "ykea.Item",
     "pk": 2,
     "fields": {
       "item_number": '70294339',
