@@ -3,7 +3,7 @@
     "model": "ykea.Item",
     "pk": 1,
     "fields": {
-      "item_number": '09186777',
+      "item_number": "09186777",
       "name": 'KONGSWDFJORD',
       "description" :'Divan bed, Hyllestad firm, Tustna dark grey',
       "price" : '1488',
@@ -16,7 +16,7 @@
    "model": "ykea.Item",
     "pk": 2,
     "fields": {
-      "item_number": '70294339',
+      "item_number": "70294339",
       "name": 'LISBAÖFJK',
       "description" :'Table, ash veneer',
       "price" : '99',
